@@ -12,7 +12,7 @@ body > header > img {
     position: absolute;
     height: auto;
     left: -18px;
-    top: -250px;
+    top: -280px;
 }
 
 .clarfix {
@@ -109,11 +109,11 @@ body > section > .motto {
 }
 
 body > section > .question {
-    position: fixed;
+    position: absolute;
     width: 400px;
     height: 53px;
     left: 96px;
-    top: 490px;
+    bottom: 190px;
 
     font-family: 'Mulish';
     font-style: normal;
@@ -122,4 +122,59 @@ body > section > .question {
     line-height: 50px;
 
     color: #294E55;
+}
+
+body > section > div > .answers {
+    position: absolute;
+    list-style-type: none;
+    padding: 0px;
+    bottom: 25px;
+}
+
+body > section > div > .answers > li {
+    display: inline-block;
+    font-family: 'Mulish';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 30px;
+    width: 250px;
+    text-align: justify;
+    color: #0E1629;
+    margin-left: 100px;
+}
+
+body > section > div > .answers > .longer{
+    margin-bottom: -50px;
+}
+
+body > section > div > .answers > .shorter{
+    margin-bottom: 20px;
+}
+
+body > section > div > ul {
+    position: absolute;
+    bottom: 40px;
+    list-style-type: none;
+    padding: 0px;
+}
+
+body > section > div > ul > #pin {
+    margin-left: 50px;
+    margin-bottom: -30px;
+}
+
+body > section > div > ul > #calendar {
+    margin-left: 400px;
+    margin-bottom: -30px;
+}
+
+body > section > div > ul > #form {
+    margin-left: 760px;
+    margin-bottom: -30px;
+}
+
+body > section > div > ul > #bed {
+    margin-left: 1120px;
+    margin-bottom: 30px;
 }
