@@ -1,2 +1,3 @@
 backend/target/classes/MonVoyage/*
 backend/target/classes/META-INF/backend.kotlin_module
+backend/src/main/resources/application.properties

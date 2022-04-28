@@ -1,7 +1,5 @@
 package MonVoyage.bookings;
 
-import MonVoyage.hotels.Hotel;
-import MonVoyage.users.User;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -14,16 +12,10 @@ import java.util.Date;
 public class Booking {
     @Id
     private int id;
-    @ManyToOne
-    private User client;
-//    @JoinColumn(foreignKey = @ForeignKey(name = "client"))
-//    private int client;
-    @ManyToOne
-    private Hotel hotel;
-//    @JoinColumn(foreignKey = @ForeignKey(name = "hotel"))
-//    private int hotel;
-    private Date start_date;
-    private Date end_date;
+    private int clientId;
+    private int hotelId;
+    private Date startDate;
+    private Date endDate;
 
     public Booking() {}
 }

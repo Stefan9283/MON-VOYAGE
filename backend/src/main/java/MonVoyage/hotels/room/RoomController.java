@@ -1,25 +1,20 @@
-package MonVoyage.hotels;
+package MonVoyage.hotels.room;
 
-import MonVoyage.hotels.room.RoomsRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/hotel")
-public class HotelController {
-    @Autowired
-    HotelsRepository hotelsRepository;
+@RequestMapping("/room")
+public class RoomController {
     @Autowired
     RoomsRepository roomsRepository;
-    
-   
 
-    @PostMapping("/addHotel")
-    public ResponseEntity addUser(@RequestBody Hotel hotel) {
+    @PostMapping("/addRoom")
+    public ResponseEntity addUser(@RequestBody Room room) {
         try {
-            hotelsRepository.save(hotel);
+            roomsRepository.save(room);
         } catch (Exception e) {
             e.printStackTrace();
             return new ResponseEntity(HttpStatus.NOT_FOUND);
@@ -29,7 +24,6 @@ public class HotelController {
 
     @DeleteMapping("/removeHotel/{id}")
     public void removeHotel(@PathVariable("id") int id) {
-        hotelsRepository.deleteById(id);
+        roomsRepository.deleteById(id);
     }
 }
-// TODO

@@ -1,12 +1,10 @@
 package MonVoyage.users;
 
-import com.sun.deploy.nativesandbox.comm.Response;
+import MonVoyage.bookings.BookingsRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
-import static com.sun.corba.se.impl.util.Utility.printStackTrace;
 
 @RestController
 @RequestMapping("/users")
@@ -14,8 +12,13 @@ public class UsersController {
     @Autowired
     UsersRepository usersRepository;
 
-    @GetMapping("/addUser")
-    public ResponseEntity<User> addUser(@RequestBody User user) {
+    @Autowired
+    BookingsRepository bookingsRepository;
+
+    // TODO make bookings from user
+
+    @PostMapping("/addUser")
+    public ResponseEntity addUser(@RequestBody User user) {
         try {
             usersRepository.save(user);
         } catch (Exception e) {
@@ -25,10 +28,31 @@ public class UsersController {
         return new ResponseEntity(HttpStatus.OK);
     }
 
-
     @DeleteMapping("/removeUser/{id}")
-    public void removeUser(@PathVariable("userId") int userId) {
+    public void removeUser(@PathVariable("id") int userId) {
         usersRepository.deleteById(userId);
     }
+
+    @PostMapping("/modify/{id}/{field}")
+    public String modifyFieldInUser(@PathVariable("field") String field, @PathVariable("id") int id,
+            @RequestBody String modifyWith) {
+
+        User user = usersRepository.findById(id);
+        if(field.equals("username"))
+            user.setUsername(modifyWith);
+        else if (field.equals("passhash"))
+            user.setPasshash(modifyWith);
+        else if (field.equals("email"))
+            user.setEmail(modifyWith);
+        else if (field.equals("type"))
+            user.setType(modifyWith);
+        else
+            return "Wrong field!";
+
+        usersRepository.deleteById(id);
+        usersRepository.save(user);
+        return "User updated!";
+    }
+
 }
 // TODO

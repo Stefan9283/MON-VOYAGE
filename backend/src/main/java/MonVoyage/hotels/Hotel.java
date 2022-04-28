@@ -5,8 +5,6 @@ import lombok.Setter;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import javax.persistence.ForeignKey;
-import javax.persistence.JoinColumn;
 
 @Getter
 @Setter
@@ -17,8 +15,7 @@ public class Hotel {
     private String name;
     private String address;
     private String country;
-    @JoinColumn(foreignKey = @ForeignKey(name = "manager"))
-    private int manager;
+    private int managerId;
 
     public Hotel() {}
 }
