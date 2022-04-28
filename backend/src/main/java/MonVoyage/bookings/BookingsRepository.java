@@ -9,6 +9,6 @@ import java.util.List;
 
 @Repository
 public interface BookingsRepository extends CrudRepository<Booking, Integer> {
-    List<Booking> findByClientId(int client_id);
+    List<Booking> findByClientIdOrderByStartDate(int client_id);
 }
 // TODO

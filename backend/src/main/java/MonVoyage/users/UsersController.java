@@ -18,19 +18,33 @@ public class UsersController {
     // TODO make bookings from user
 
     @PostMapping("/addUser")
-    public ResponseEntity addUser(@RequestBody User user) {
+    public ResponseEntity<String> addUser(@RequestBody User user) {
         try {
+            {
+                if (usersRepository.findById(user.getId()) != null)
+                    throw new Exception("User with the same id already exists");
+            }
+            {
+                if (usersRepository.findByEmail(user.getEmail()) != null)
+                    throw new Exception("User with the same email already exists");
+            }
+
             usersRepository.save(user);
         } catch (Exception e) {
             e.printStackTrace();
-            return new ResponseEntity(HttpStatus.NOT_FOUND);
+            return new ResponseEntity<String>(e.getMessage(), HttpStatus.CONFLICT);
         }
-        return new ResponseEntity(HttpStatus.OK);
+        return new ResponseEntity<String>(HttpStatus.OK);
     }
 
     @DeleteMapping("/removeUser/{id}")
-    public void removeUser(@PathVariable("id") int userId) {
-        usersRepository.deleteById(userId);
+    public ResponseEntity<String> removeUser(@PathVariable("id") int userId) {
+        try {
+            usersRepository.deleteById(userId);
+        } catch (Exception e) {
+            return new ResponseEntity<String>(e.getMessage(), HttpStatus.NOT_FOUND);
+        }
+        return new ResponseEntity<String>(HttpStatus.OK);
     }
 
     @PostMapping("/modify/{id}/{field}")
@@ -53,6 +67,5 @@ public class UsersController {
         usersRepository.save(user);
         return "User updated!";
     }
-
 }
 // TODO
