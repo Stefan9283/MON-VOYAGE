@@ -1,6 +1,6 @@
 
-- check disponibily of a hotel
-    ---> lista cu camerele din hotel libere la data respectiva
+- check disponibily of a hotel   ----> freeRooms in bookinController
+                  --> are niste bug uri, nu mai am eu timp sa le rezolv acum -Anemona
 - operatii specifice pe useri
 - user care poate pune un booking
 - receptioner care poate face un checkin / checkout
@@ -8,7 +8,8 @@
 - adaugare feature-uri camerelor
 - login / sign up
 - sumar cu rezervari per client
-
+- nu ar trebui sa putem adauga o rezervare daca nr de camere din
+hotelul respectiv este depasit de rezervari in acea perioada
 
 
 

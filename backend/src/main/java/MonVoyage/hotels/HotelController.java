@@ -1,6 +1,6 @@
 package MonVoyage.hotels;
 
-import MonVoyage.hotels.room.RoomsRepository;
+import MonVoyage.room.RoomsRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -17,7 +17,7 @@ public class HotelController {
    
 
     @PostMapping("/addHotel")
-    public ResponseEntity addUser(@RequestBody Hotel hotel) {
+    public ResponseEntity addHotel(@RequestBody Hotel hotel) {
         try {
             hotelsRepository.save(hotel);
         } catch (Exception e) {

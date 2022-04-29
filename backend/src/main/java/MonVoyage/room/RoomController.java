@@ -1,4 +1,4 @@
-package MonVoyage.hotels.room;
+package MonVoyage.room;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -12,7 +12,7 @@ public class RoomController {
     RoomsRepository roomsRepository;
 
     @PostMapping("/addRoom")
-    public ResponseEntity addUser(@RequestBody Room room) {
+    public ResponseEntity addRoom(@RequestBody Room room) {
         try {
             roomsRepository.save(room);
         } catch (Exception e) {
@@ -22,8 +22,8 @@ public class RoomController {
         return new ResponseEntity(HttpStatus.OK);
     }
 
-    @DeleteMapping("/removeHotel/{id}")
-    public void removeHotel(@PathVariable("id") int id) {
+    @DeleteMapping("/removeRoom/{id}")
+    public void removeRoom(@PathVariable("id") int id) {
         roomsRepository.deleteById(id);
     }
 }

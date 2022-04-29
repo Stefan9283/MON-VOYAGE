@@ -1,4 +1,4 @@
-package MonVoyage.hotels.room;
+package MonVoyage.room;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -12,7 +12,7 @@ public class Room {
     @Id
     private int id;
     private int number;
-    private int hotel_id;
+    private int hotelId;
     boolean state;
 
     public Room() {}
