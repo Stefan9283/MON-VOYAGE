@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -38,29 +39,48 @@ public class BookingController {
     }
 
     @GetMapping("/freeRoomsAt/{hotelId}")
+    // TODO check why this doesn't work????????
     public String freeRooms(@PathVariable("hotelId") int hotelId, @RequestBody List<String> dateString) throws ParseException {
         // the body will contain a list of 2 dates, start date of the period and end date of the period
+        StringBuilder sb = new StringBuilder();
         if(dateString.size() == 2) {
             List<Room> roomsAtHotel = roomsRepository.findRoomsByHotelId(hotelId);
             SimpleDateFormat dates = new SimpleDateFormat("dd-mm-yyyy");
 
-            List<Booking> bookings = bookingsRepository
-                    .findBookingsByHotelIdAndStartDateBeforeAndEndDateAfter(hotelId, dates.parse(dateString.get(0)),
-                            dates.parse(dateString.get(1)));
+            List<Booking> bookings = bookingsRepository.findBookingsByHotelId(hotelId);
+            //.findBookingsByHotelIdAndStartDateBeforeAndEndDateAfter(hotelId, dates.parse(dateString.get(0)),
+//                            dates.parse(dateString.get(1)));
+            List<Booking> bookingsBetween = new ArrayList<>();
+            for(int i = 0; i < bookings.size(); i++) {
+                if(bookings.get(i).getStartDate().after(dates.parse(dateString.get(0))) &&
+                                bookings.get(i).getEndDate().before(dates.parse(dateString.get(1)))) {
+                    bookingsBetween.add(bookings.get(i));
+                }
+//
+            }
+//
+            if(bookingsBetween.isEmpty()) {
+                sb.append("e null nu mai incerca");
+            } else {
+                sb.append("nu e null");
+            }
+            for(Booking b : bookingsBetween) {
+                System.out.println(b.getStartDate() + " start si end -> " + b.getEndDate());
+            }
+            if(roomsAtHotel.size() > bookingsBetween.size()) {
 
-            if(roomsAtHotel.size() > bookings.size()) {
-                StringBuilder sb = new StringBuilder();
                 sb.append("There are ");
-                sb.append(roomsAtHotel.size() - bookings.size());
+                sb.append(roomsAtHotel.size() - bookingsBetween.size());
                 sb.append(" free rooms at the requested hotel for that period");
                 return sb.toString();
             } else {
-                return "No room available in that period at the hotel";
+                sb.append( "No room available in that period at the hotel");
             }
 
         } else {
-            return "Please put 2 dates in the list";
+            sb.append("Please put 2 dates in the list");
         }
+        return sb.toString();
     }
 }
 // TODO
