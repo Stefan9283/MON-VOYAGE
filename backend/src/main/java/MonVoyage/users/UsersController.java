@@ -47,7 +47,7 @@ public class UsersController {
         return new ResponseEntity<String>(HttpStatus.OK);
     }
 
-    @PostMapping("/modify/{id}/{field}")
+    @PutMapping("/modify/{id}/{field}")
     public String modifyFieldInUser(@PathVariable("field") String field, @PathVariable("id") int id,
             @RequestBody String modifyWith) {
 
