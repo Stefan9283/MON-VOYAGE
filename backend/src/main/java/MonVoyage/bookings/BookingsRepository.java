@@ -12,6 +12,6 @@ import java.util.List;
 public interface BookingsRepository extends CrudRepository<Booking, Integer> {
     List<Booking> findByClientIdOrderByStartDate(int clientId);
     List<Booking> findBookingsByHotelId(int hotelId);
-    List<Booking> findBookingsByHotelIdAndStartDateBeforeAndEndDateAfter(int hotelId, Date startDate, Date endDate);
+    List<Booking> findBookingsByHotelIdAndStartDateBeforeOrEndDateAfter(int hotelId, Date startDate, Date endDate);
 }
 // TODO
