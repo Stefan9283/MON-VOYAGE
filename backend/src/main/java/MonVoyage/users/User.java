@@ -6,6 +6,16 @@ import lombok.Setter;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 
+
+enum UserType {
+    OMDESERVICIU,
+    RECEPTIONER,
+    GESTIONAR,
+    CONTABIL,
+    MANAGER,
+    USER;
+}
+
 @Getter
 @Setter
 @Entity
@@ -16,14 +26,6 @@ public class User {
     private String email;
     private String passhash;
 
-    /*
-        OMDESERVICIU
-        RECEPTIONER
-        GESTIONAR
-        CONTABIL
-        MANAGER
-        USER
-     */
     private String type;
 
     public User() {}
@@ -36,6 +38,7 @@ public class User {
         passhash = modifyWith;
     }
     public void setEmail(String modifyWith) {
+
         email = modifyWith;
     }
 

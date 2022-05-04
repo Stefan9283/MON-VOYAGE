@@ -6,6 +6,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.xml.ws.http.HTTPBinding;
+
 @RestController
 @RequestMapping("/users")
 public class UsersController {
@@ -19,20 +21,28 @@ public class UsersController {
 
     @PostMapping("/addUser")
     public ResponseEntity<String> addUser(@RequestBody User user) {
+        HttpStatus status = HttpStatus.OK;
         try {
             {
-                if (usersRepository.findById(user.getId()) != null)
-                    throw new Exception("User with the same id already exists");
+                if (usersRepository.findByEmail(user.getEmail()) != null) {
+                    status = HttpStatus.BAD_REQUEST;
+                    throw new Exception("User with the same email already exists");
+                }
             }
             {
-                if (usersRepository.findByEmail(user.getEmail()) != null)
-                    throw new Exception("User with the same email already exists");
+                // TODO instead of this auto-increment the id of the user
+                //  (the same thing for every other class)
+                if (usersRepository.findById(user.getId()) != null) {
+                    status = HttpStatus.BAD_REQUEST;
+                    throw new Exception("User with the same id already exists");
+                }
             }
 
             usersRepository.save(user);
         } catch (Exception e) {
+            status = HttpStatus.BAD_REQUEST;
             e.printStackTrace();
-            return new ResponseEntity<String>(e.getMessage(), HttpStatus.CONFLICT);
+            return new ResponseEntity<String>(e.getMessage(), status);
         }
         return new ResponseEntity<String>(HttpStatus.OK);
     }
@@ -48,8 +58,8 @@ public class UsersController {
     }
 
     @PutMapping("/modify/{id}/{field}")
-    public String modifyFieldInUser(@PathVariable("field") String field, @PathVariable("id") int id,
-            @RequestBody String modifyWith) {
+    public String modifyFieldInUser(@PathVariable("field") String field,
+            @PathVariable("id") int id, @RequestBody String modifyWith) {
 
         User user = usersRepository.findById(id);
         if(field.equals("username"))
