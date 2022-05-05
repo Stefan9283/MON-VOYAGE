@@ -21,4 +21,15 @@ public class Booking {
     private Date endDate;
 
     public Booking() {}
+
+    @Override
+    public String toString() {
+        return "Booking{" +
+                "id=" + id +
+                ", clientId=" + clientId +
+                ", hotelId=" + hotelId +
+                ", startDate=" + startDate +
+                ", endDate=" + endDate +
+                '}';
+    }
 }
