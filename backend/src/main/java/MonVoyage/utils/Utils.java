@@ -4,7 +4,7 @@ public class Utils {
     // TODO 
     static boolean isEmail(String email) {
         int ats_count = (int) email.chars().filter(ch -> ch == '@').count();
-        int dots_count = (int) email.chars().filter(ch -> ch == '@').count();
+        int dots_count = (int) email.chars().filter(ch -> ch == '.').count();
 
         if (dots_count != 1 || ats_count != 1)
             return false;
@@ -18,11 +18,26 @@ public class Utils {
         return true;
     }
 
+    static boolean isPhoneNo(String phoneNo) {
+        return false; // TODO
+    }
+
+    static boolean isValidPassword(String password) {
+        return false; // TODO
+    }
+
     public static void main(String[] args) {
-        System.out.println(Utils.isEmail("asaga@fa.com"));
-        System.out.println(Utils.isEmail("asaga@fa@.com"));
-        System.out.println(Utils.isEmail("asaga@fa."));
-        System.out.println(Utils.isEmail("@fa.com"));
-        System.out.println(Utils.isEmail("asaga@.caf"));
+        // email
+//        System.out.println(Utils.isEmail("asaga@fa@.com"));
+//        System.out.println(Utils.isEmail("asaga@fa."));
+//        System.out.println(Utils.isEmail("@fa.com"));
+//        System.out.println(Utils.isEmail("asaga@.caf"));
+//        System.out.println(Utils.isEmail("asagacaf"));
+//        System.out.println(Utils.isEmail("sfasffa.caf"));
+//        System.out.println(Utils.isEmail("asaga@caf"));
+//        System.out.println(Utils.isEmail("asaga@fa.com"));
+        // password
+        
+        // phone_no
     }
 }

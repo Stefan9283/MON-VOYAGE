@@ -19,8 +19,10 @@ public interface BookingsRepository extends CrudRepository<Booking, Integer> {
     List<Booking> findBookingsByHotelIdAndStartDateIsGreaterThanAndEndDateIsLessThan(int hotelId, Date endDate, Date startDate);
     
     @Query("from Booking where hotel_id=:hotelId and " +
-            "((end_date < :startDate) or " +
-            "(start_date > :endDate))")
+            "(" +
+                "(end_date < :startDate) or " +
+                "(start_date > :endDate)" +
+            ")")
     List<Booking> findBookingsByHotelIdWithNoIntersections(
             @Param("hotelId")   int hotelId,
             @Param("startDate") Date startDate,
@@ -28,14 +30,14 @@ public interface BookingsRepository extends CrudRepository<Booking, Integer> {
     );
 
     @Query("from Booking where hotel_id=:hotelId and (" +
-            "(:startDate <= start_date and start_date <= :endDate) or " +
-            "(:startDate <= end_date and end_date <= :endDate) or" +
-            "(:startDate >= start_date and end_date >= :endDate))")
+                "(:startDate <= start_date and start_date <= :endDate) or " +
+                "(:startDate <= end_date and end_date <= :endDate) or" +
+                "(:startDate >= start_date and end_date >= :endDate)" +
+            ")")
     List<Booking> findBookingsByHotelIdWithIntersections(
             @Param("hotelId")   int hotelId,
             @Param("startDate") Date startDate,
             @Param("endDate")   Date endDate
     );
-
 }
 // TODO
