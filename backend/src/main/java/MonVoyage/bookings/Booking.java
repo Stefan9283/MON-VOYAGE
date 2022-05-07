@@ -12,6 +12,7 @@ import java.util.Date;
 @Entity
 public class Booking {
     @Id
+    @GeneratedValue
     private int id;
     private int clientId;
     private int hotelId;

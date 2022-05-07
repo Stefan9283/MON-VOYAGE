@@ -1,8 +1,4 @@
-
-- check disponibily of a hotel   ----> freeRooms in bookinController
-                  --> are niste bug uri, nu mai am eu timp sa le rezolv acum -Anemona
 - operatii specifice pe useri
-- user care poate pune un booking
 - receptioner care poate face un checkin / checkout
 - creare orar de lucru
 - adaugare feature-uri camerelor
