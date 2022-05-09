@@ -17,7 +17,8 @@ public interface BookingsRepository extends CrudRepository<Booking, Integer> {
     List<Booking> findBookingsByHotelIdAndStartDateAfterAndEndDateBefore(int hotelId, Date startDate, Date endDate);
     List<Booking> findBookingsByHotelIdAndStartDateIsLessThanAndEndDateGreaterThan(int hotelId, Date startDate, Date endDate);
     List<Booking> findBookingsByHotelIdAndStartDateIsGreaterThanAndEndDateIsLessThan(int hotelId, Date endDate, Date startDate);
-    
+    List<Booking> findBookingsByClientId(int clientId);
+
     @Query("from Booking where hotel_id=:hotelId and " +
             "(" +
                 "(end_date < :startDate) or " +

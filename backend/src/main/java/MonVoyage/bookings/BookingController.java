@@ -70,6 +70,13 @@ public class BookingController {
 
         return roomsAtHotel.size() - bookings.size();
     }
+
+    @GetMapping("getBookings/{clientId}")
+    public List<Booking> getBookingsOf(@PathVariable("clientId") int clientId) {
+        List<Booking> bookings =  bookingsRepository.findBookingsByClientId(clientId);
+
+        return bookings;
+    }
 }
 
 
