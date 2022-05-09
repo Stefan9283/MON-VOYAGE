@@ -4,6 +4,8 @@ import MonVoyage.bookings.Booking;
 import MonVoyage.bookings.BookingsRepository;
 import MonVoyage.hotels.Hotel;
 import MonVoyage.hotels.HotelsRepository;
+import MonVoyage.reviews.Review;
+import MonVoyage.reviews.ReviewsRepository;
 import MonVoyage.room.Room;
 import MonVoyage.room.RoomsRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,6 +33,9 @@ public class UsersController {
 
     @Autowired
     HotelsRepository hotelsRepository;
+
+    @Autowired
+    ReviewsRepository reviewsRepository;
     // TODO make bookings from user
 
     @PostMapping("/addUser")
@@ -93,6 +98,7 @@ public class UsersController {
     }
 
     // this method recives the start and the  end date
+    // TODO this shoul be accesed only by the receptionist, theapp user and the manager
     @PostMapping("/userMakesBooking/{mail}/{hotelId}")
     public String makeBooking(@RequestBody List<String> dateString, @PathVariable("mail") String mail,
                               @PathVariable("hotelId") int hotelId) throws ParseException {
@@ -127,7 +133,20 @@ public class UsersController {
         }
 
         return "Booking has been registered!";
+    }
 
+    // TODO only the user should add reviews
+    @PostMapping("/addReview")
+    public ResponseEntity<String> addReviews(@RequestBody Review review) {
+        HttpStatus status = HttpStatus.OK;
+        try {
+            reviewsRepository.save(review);
+        } catch (Exception e) {
+            status = HttpStatus.BAD_REQUEST;
+            e.printStackTrace();
+            return new ResponseEntity<String>(e.getMessage(), status);
+        }
+        return new ResponseEntity<String>(HttpStatus.OK);
     }
 }
 // TODO
