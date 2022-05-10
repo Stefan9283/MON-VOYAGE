@@ -14,6 +14,12 @@ public class Room {
     private int number;
     private int hotelId;
     boolean state;
+    boolean airCondtioning;
+    boolean tv;
+    boolean attractionView;
+    boolean matrimonial;
+    boolean smokerRoom;
+    boolean hairDresser;
 
     public Room() {}
 }

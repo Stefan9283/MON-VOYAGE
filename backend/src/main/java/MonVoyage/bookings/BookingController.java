@@ -72,7 +72,7 @@ public class BookingController {
     }
 
     @GetMapping("getBookings/{clientId}")
-    public List<Booking> getBookingsOf(@PathVariable("clientId") int clientId) {
+    public List<Booking> getBookingsOfClient(@PathVariable("clientId") int clientId) {
         List<Booking> bookings =  bookingsRepository.findBookingsByClientId(clientId);
 
         return bookings;
@@ -80,4 +80,3 @@ public class BookingController {
 }
 
 
-// TODO

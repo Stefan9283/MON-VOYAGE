@@ -1,9 +1,10 @@
-- operatii specifice pe useri
+- operatii specifice pe useri  ---> am adaugat pentru cleaning man(netestata)
 - receptioner care poate face un checkin / checkout
 - creare orar de lucru
 - adaugare feature-uri camerelor
 - login / sign up
 - added reviews  --- facuta Anemona
+- get all locations --- facuta Anemona
 - sumar cu rezervari per client
 - nu ar trebui sa putem adauga o rezervare daca nr de camere din
 hotelul respectiv este depasit de rezervari in acea perioada  --- facuta Anemona
