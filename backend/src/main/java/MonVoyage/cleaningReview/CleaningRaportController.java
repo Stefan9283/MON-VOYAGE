@@ -30,7 +30,7 @@ public class CleaningRaportController {
                                                    @PathVariable("hotelId") int hotelId)
             throws CleaningRaportNotFound {
         CleaningRaport cleaningRaport = cleaningRaportRepository
-                .findCleaningRaportByRoomIdaAndHotelId(roomId, hotelId);
+                .findCleaningRaportByRoomIdAndHotelId(roomId, hotelId);
         if (cleaningRaport == null)
             throw new CleaningRaportNotFound("Cleaning raport fot this room does not exist.");
         else
