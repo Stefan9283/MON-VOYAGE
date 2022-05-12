@@ -18,12 +18,12 @@ class Home extends Component {
               </div>
             </div>
           </header>
-          <div className="container">
+          <div className="container ">
             <div className="row h-100 align-items-center text-down">
-              <div className="col-12 text-left">
+              <div className="col-12 text-left zHomeI">
                 <h1 className="titlu-verde">How it works?</h1>
               </div>
-              <div className="row align-items-start">
+              <div className="row align-items-start zHomeI">
                 <div className="col">
                   <div className="item">
                     <span className="icon">

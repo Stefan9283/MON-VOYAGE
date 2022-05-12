@@ -406,14 +406,15 @@
         .photoBook {
 
             /* deluxe-bedroom-at-the 1 */
-
+            @if not variable-exists(z-index) {
             position: absolute;
+            }
             width: 361px;
             height: 241px;
             left: 393px;
             top: 104px;
 
-            background: url("../img/book.png");
+            // background: url("../img/book.png");
 
         }
 
@@ -427,7 +428,7 @@
             left: 779px;
             top: 104px;
 
-            background: url("../img/book.png");
+            // background: url("../img/book.png");
 
         }
 
@@ -442,7 +443,7 @@
             left: 779px;
             top: 241px;
 
-            background: url("../img/book.png");
+            // background: url("../img/book.png");
         }
 
     }

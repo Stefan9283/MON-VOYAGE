@@ -5,6 +5,8 @@ import "../assets/styles/popUpBook.scss";
 
 import SignPopup from "./SignPopup";
 
+import { ImageViewer } from "react-image-viewer-dv"
+
 function LocationPopupBook({ idHotel, guests, rooms, checkIn, checkOut }) {
   const contentStyle = { background: "none", border: "none" };
 
@@ -40,9 +42,23 @@ function LocationPopupBook({ idHotel, guests, rooms, checkIn, checkOut }) {
         </div>
       </div>
       <div className="photos">
-        <div className="photoBook"></div>
-        <div className="photoBookUp"></div>
-        <div className="photoBookDown"></div>
+        <div >
+        <ImageViewer>
+            <img className="photoBook" src={"../assets/img/book.png"}  alt="Hotel" />
+          </ImageViewer>
+
+        </div>
+        {/* ../img/book.png */}
+        <div >
+        <ImageViewer>
+            <img className="photoBookUp" src={"../assets/img/book.png"}  alt="Hotel" />
+          </ImageViewer>
+        </div>
+        <div>
+        <ImageViewer>
+            <img  className="photoBookDown" src={"../assets/img/book.png"}  alt="Hotel" />
+          </ImageViewer>
+        </div>
       </div>
       <div className="container contentContainerBook">
         <div className="row">
