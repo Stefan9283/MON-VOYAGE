@@ -1,0 +1,256 @@
+.btn-default {
+    background-color: #0E1629 !important;
+    color: white !important;
+}
+
+.btn-outline-default {
+    border-color: #0E1629 !important;
+    color: white !important;
+}
+
+
+.verde {
+
+    height: 75vh;
+    min-height: 1080px;
+    background-image: url('../img/blur.svg');
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.verde {
+    background-color: #294E55 !important;
+}
+
+
+.btn-outline-default {
+    color: white !important;
+}
+
+.titleReview {
+    color: white;
+    font-family: 'Mulish';
+    width: 70%;
+    font-size: 65px;
+    padding-top: 150px;
+    padding-bottom: 50px;
+    text-align: start;
+}
+
+.btn-form {
+    background-color: #3F1630 !important;
+    border-color: #3F1630 !important;
+    color: white !important;
+}
+
+
+
+.cardReview {
+    position: absolute;
+    width: 385px;
+    height: 563px;
+    // left: 89px;
+    top: 100px;
+
+    background: #FFFFFF;
+    box-shadow: 10px 10px 25px rgba(0, 0, 0, 0.25);
+    border-radius: 5px;
+
+}
+
+.cardReview .fullName {
+
+
+    position: absolute;
+    width: 139px;
+    height: 36px;
+    left: 43px;
+    top: 39px;
+
+    font-family: 'Mulish';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 30px;
+    line-height: 38px;
+
+    color: #3F1630;
+
+}
+
+.cardReview .data {
+
+
+    position: absolute;
+    width: 55px;
+    height: 11px;
+    left: 44px;
+    top: 78px;
+
+    font-family: 'Mulish';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 10px;
+    line-height: 13px;
+
+    color: #3F1630;
+
+}
+
+
+
+
+
+.cardReview .ratings {
+
+
+    position: absolute;
+    left: 64.94%;
+    right: 13.25%;
+    top: 6.93%;
+    bottom: 83.51%;
+}
+
+.cardReview .titleRev {
+
+    /* Review Title */
+
+    position: absolute;
+    width: 232px;
+    height: 52px;
+    left: 76px;
+    top: 126px;
+
+    font-family: 'Mulish';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 40px;
+    line-height: 50px;
+
+    color: #3F1630;
+
+
+}
+
+.cardReview .contentRev {
+
+    /* Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse enim augue, vulputate sit amet vestibulum eu, accumsan a tellus. Nam erat magna, tincidunt a convallis ut, hendrerit in metus. Ut fringilla mi ac ultrices ullamcorper. Phasellus metus risus, blandit tempor mi et, scelerisque egestas ligula. Proin pulvinar ante non gravida aliquet. Suspendisse sit amet iaculis quam. Sed bibendum, lorem vel scelerisque interdum, tortor mauris molestie ante, non pellentesque augue dolor ac ipsum. Fusce ultrices ipsum eu risus sodales volutpat. Sed mollis massa non dignissim aliquet. Morbi id ultricies ipsum, a ornare metus. Cras at arcu in nisi ultrices faucibus. Cras nec dolor dignissim, laoreet sem in, scelerisque ex. Suspendisse dolor arcu, semper eget odio ut, feugiat porta enim. Ut malesuada blandit purus et bibendum. Morbi enim turpis, malesuada vitae bibendum id, blandit non felis. In dui nunc, volutpat lacinia mi sit amet, efficitur ullamcorper orci. */
+
+    position: absolute;
+    width: 299px;
+    height: 311px;
+    left: 43px;
+    top: 206px;
+
+    font-family: 'Mulish';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 15px;
+    text-align: justify;
+
+    color: #3F1630;
+
+
+}
+
+.swiper {
+    width: 100%;
+    height: 100%;
+}
+
+.swiper-slide {
+    text-align: center;
+    font-size: 18px;
+
+    /* Center slide text vertically */
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+}
+
+.swiper-slide img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+
+.btn-form2 {
+
+    z-index: 1;
+
+    position: absolute;
+    width: 315px;
+    height: 73px;
+    right: 20%;
+    bottom: 10%;
+
+    background: #3F1630;
+    box-shadow: 10px 10px 25px rgba(63, 22, 48, 0.25);
+    border-radius: 10px;
+
+
+    .txtBtn {
+        position: absolute;
+        width: 229px;
+        height: 33px;
+        left: 43px;
+        top: 16px;
+
+        font-family: 'Mulish';
+        font-style: normal;
+        font-weight: 700;
+        font-size: 32px;
+        line-height: 40px;
+        text-align: justify;
+
+        color: #FFFFFF;
+    }
+}
+
+
+.modal {
+    font-size: 12px;
+  }
+  .modal > .header {
+    width: 100%;
+    border-bottom: 1px solid gray;
+    font-size: 18px;
+    text-align: center;
+    padding: 5px;
+  }
+  .modal > .content {
+    width: 100%;
+    padding: 10px 5px;
+  }
+  .modal > .actions {
+    width: 100%;
+    padding: 10px 5px;
+    margin: auto;
+    text-align: center;
+  }
+  .modal > .close {
+    cursor: pointer;
+    position: absolute;
+    display: block;
+    padding: 2px 5px;
+    line-height: 20px;
+    right: -10px;
+    top: -10px;
+    font-size: 24px;
+    background: #ffffff;
+    border-radius: 18px;
+    border: 1px solid #cfcece;
+  }

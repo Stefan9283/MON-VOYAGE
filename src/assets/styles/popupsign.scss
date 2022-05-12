@@ -1,0 +1,124 @@
+.logoPop {
+
+    position: absolute;
+    width: 476px;
+    height: 476px;
+    left: 120px;
+    top: -32px;
+}
+
+.contentPop {
+
+
+    width: 678px;
+    height: 681px;
+    left: 381px;
+
+    background: #FFFFFF;
+    box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.25);
+    border-radius: 20px;
+
+
+
+
+    .textPop {
+
+
+        position: absolute;
+        width: 548px;
+        height: 32px;
+        left: 65px;
+        top: 311px;
+
+        font-family: 'Mulish';
+        font-style: normal;
+        font-weight: 500;
+        font-size: 24px;
+        line-height: 30px;
+        text-align: justify;
+
+        color: #294E55;
+    }
+
+
+
+    .btn-popUp {
+
+
+        position: absolute;
+        width: 340px;
+        height: 75px;
+        left: 169px;
+        top: 410px;
+
+        background: #7D1538;
+        border-radius: 20px;
+
+    }
+
+    .textBtnPopup {
+
+
+        /* Sign up */
+
+        position: absolute;
+        width: 128px;
+        height: 38px;
+        left: 106px;
+        top: 13px;
+
+        font-family: 'Mulish';
+        font-style: normal;
+        font-weight: 500;
+        font-size: 36px;
+        line-height: 45px;
+        text-align: justify;
+
+        color: #FFFFFF;
+
+    }
+
+
+    .textDownPopup {
+
+        
+        position: absolute;
+        width: 302px;
+        height: 48px;
+        left: 188px;
+        top: 520px;
+
+        font-family: 'Mulish';
+        font-style: normal;
+        font-weight: 500;
+        font-size: 24px;
+        line-height: 30px;
+        text-align: justify;
+
+        color: #000000;
+
+    }
+
+
+    // /* X */
+
+    // position: absolute;
+    // width: 28px;
+    // height: 44px;
+    // left: 631px;
+    // top: 13px;
+
+    // font-family: 'Mulish';
+    // font-style: normal;
+    // font-weight: 500;
+    // font-size: 36px;
+    // line-height: 45px;
+    // text-align: justify;
+
+    // color: #3F1630;
+}
+
+.popup-content{
+    background: none;
+    border: none;
+}
