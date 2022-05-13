@@ -1,12 +1,13 @@
 package MonVoyage.cleaningReview;
 
-import MonVoyage.exceptions.CleaningReportNotFound;
+import MonVoyage.utils.exceptions.CleaningReportNotFound;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-// TODO not tested!
+// TODO work more !
+// this should be accessed by the cleaning man and by the storekeeper
 @RestController
 @RequestMapping("/cleaningReport")
 public class CleaningReportController {
@@ -14,7 +15,7 @@ public class CleaningReportController {
     CleaningReportRepository cleaningReportRepository;
 
     @PostMapping
-    public ResponseEntity<String> addCleaningReport(@RequestBody CleaningReport cleaningReport) {
+    public ResponseEntity<HttpStatus> addCleaningReport(@RequestBody CleaningReport cleaningReport) {
         try {
             cleaningReportRepository.save(cleaningReport);
         } catch (Exception e) {
@@ -31,13 +32,13 @@ public class CleaningReportController {
         CleaningReport cleaningReport = cleaningReportRepository
                 .findCleaningReportByRoomIdAndHotelId(roomId, hotelId);
         if (cleaningReport == null)
-            throw new CleaningReportNotFound("Cleaning report fot this room does not exist.");
+            throw new CleaningReportNotFound("Cleaning Report fot this room does not exist.");
         else
             return cleaningReport;
     }
 
     @DeleteMapping("/{roomId}/{hotelId}")
-    public ResponseEntity<String> deleteCleaningReport(@PathVariable("roomId") int roomId,
+    public ResponseEntity<HttpStatus> deleteCleaningReport(@PathVariable("roomId") int roomId,
                                                @PathVariable("hotelId") int hotelId) {
         try {
             cleaningReportRepository.deleteCleaningReportByRoomIdAndHotelId(roomId, hotelId);

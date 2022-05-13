@@ -1,14 +1,12 @@
 package MonVoyage.buylist;
 
-import MonVoyage.cleaningReview.CleaningRaport;
-import MonVoyage.exceptions.BuyListNotFound;
-import MonVoyage.exceptions.CleaningRaportNotFound;
+import MonVoyage.utils.exceptions.BuyListNotFound;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-// TODO this should only be accesed by the storekeeper
+// TODO this should only be accessed by the storekeeper
 @RestController
 @RequestMapping("/buyList")
 public class BuyListController {
@@ -16,14 +14,14 @@ public class BuyListController {
     BuyListRepository buyListRepository;
 
     @PostMapping
-    public ResponseEntity addBuyList(@RequestBody BuyList buyList) {
+    public ResponseEntity<HttpStatus> addBuyList(@RequestBody BuyList buyList) {
         try {
             buyListRepository.save(buyList);
         } catch (Exception e) {
             e.printStackTrace();
-            return new ResponseEntity(HttpStatus.NOT_FOUND);
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
-        return new ResponseEntity(HttpStatus.OK);
+        return new ResponseEntity<>(HttpStatus.OK);
     }
 
     @GetMapping("/{roomId}/{hotelId}")
@@ -39,14 +37,14 @@ public class BuyListController {
     }
 
     @DeleteMapping("/{roomId}/{hotelId}")
-    public ResponseEntity deleteBuyList(@PathVariable("roomId") int roomId,
+    public ResponseEntity<HttpStatus> deleteBuyList(@PathVariable("roomId") int roomId,
                                                @PathVariable("hotelId") int hotelId) {
         try {
             buyListRepository.deleteBuyListByRoomNumberAndHotelId(roomId, hotelId);
         } catch (Exception e) {
             e.printStackTrace();
-            return new ResponseEntity(HttpStatus.NOT_FOUND);
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
-        return new ResponseEntity(HttpStatus.OK);
+        return new ResponseEntity<>(HttpStatus.OK);
     }
 }

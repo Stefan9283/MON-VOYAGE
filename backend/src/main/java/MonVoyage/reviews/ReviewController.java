@@ -16,8 +16,6 @@ public class ReviewController {
 
     @GetMapping("/showReviewsFrom/{hotelId}")
     public List<Review> getAllReviews(@PathVariable("hotelId") int hotelId) {
-        List<Review> reviews = reviewsRepository.findReviewsByHotelId(hotelId);
-
-        return reviews;
+        return reviewsRepository.findReviewsByHotelId(hotelId);
     }
 }

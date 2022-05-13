@@ -17,7 +17,6 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.List;
 
-//import javax.xml.ws.http.HTTPBinding;
 
 @RestController
 @RequestMapping("/users")

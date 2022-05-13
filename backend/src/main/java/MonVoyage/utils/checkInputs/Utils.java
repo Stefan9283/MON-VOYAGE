@@ -1,4 +1,4 @@
-package MonVoyage.utils;
+package MonVoyage.utils.checkInputs;
 
 
 import javafx.util.Pair;
