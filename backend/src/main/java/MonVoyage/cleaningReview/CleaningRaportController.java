@@ -7,7 +7,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-// TODO not tested!
+// TODO work more !
+// this should be accesseed by the cleaning man and by the storekeeper
 @RestController
 @RequestMapping("/cleaningRaport")
 public class CleaningRaportController {
