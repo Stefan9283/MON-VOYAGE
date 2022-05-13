@@ -8,4 +8,3 @@ public interface HotelsRepository extends CrudRepository<Hotel, Integer> {
     void deleteById(int id);
     Hotel findHotelById(int id);
 }
-// TODO

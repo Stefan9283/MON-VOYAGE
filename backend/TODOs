@@ -1,15 +1,20 @@
-- operatii specifice pe useri  ---> am adaugat pentru cleaning man(netestata)
+
+# TODOs
 - receptioner care poate face un checkin / checkout
 - creare orar de lucru
-- adaugare feature-uri camerelor
 - login / sign up
+
+# WIP
+- operatii specifice pe useri  ---> am adaugat pentru cleaning man --- facuta Anemona
+- adaugare feature-uri camerelor --- Stefan
+
+# DONE
+- functii pentru verificat datele de intrare -> deocamdata email, parola, numar telefon --- Stefan
 - added reviews  --- facuta Anemona
 - get all locations --- facuta Anemona
-- sumar cu rezervari per client
+- sumar cu rezervari per client --- facuta Anemona
 - nu ar trebui sa putem adauga o rezervare daca nr de camere din
-hotelul respectiv este depasit de rezervari in acea perioada  --- facuta Anemona
-
-
+  hotelul respectiv este depasit de rezervari in acea perioada  --- facuta Anemona
 
 
 

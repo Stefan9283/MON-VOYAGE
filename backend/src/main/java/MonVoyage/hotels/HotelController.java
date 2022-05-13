@@ -16,18 +16,16 @@ public class HotelController {
     HotelsRepository hotelsRepository;
     @Autowired
     RoomsRepository roomsRepository;
-    
-   
 
     @PostMapping("/addHotel")
-    public ResponseEntity addHotel(@RequestBody Hotel hotel) {
+    public ResponseEntity<HttpStatus> addHotel(@RequestBody Hotel hotel) {
         try {
             hotelsRepository.save(hotel);
         } catch (Exception e) {
             e.printStackTrace();
-            return new ResponseEntity(HttpStatus.NOT_FOUND);
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
-        return new ResponseEntity(HttpStatus.OK);
+        return new ResponseEntity<>(HttpStatus.OK);
     }
 
     @DeleteMapping("/removeHotel/{id}")
@@ -47,4 +45,3 @@ public class HotelController {
         return locations;
     }
 }
-// TODO

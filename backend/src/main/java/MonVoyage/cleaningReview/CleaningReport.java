@@ -10,7 +10,7 @@ import javax.persistence.Id;
 @Entity
 @Setter
 @Getter
-public class CleaningRaport {
+public class CleaningReport {
     @Id
     @GeneratedValue
     private int id;
@@ -18,5 +18,5 @@ public class CleaningRaport {
     private int hotelId;
     private int roomId;
     private int roomState;
-    private String damagesRaport;
+    private String damagesReport;
 }

@@ -1,5 +1,10 @@
 package MonVoyage.utils;
 
+
+import javafx.util.Pair;
+
+import java.util.*;
+
 public class Utils {
     // TODO 
     static boolean isEmail(String email) {
@@ -18,12 +23,58 @@ public class Utils {
         return true;
     }
 
+    // check if the string phoneNo has
+    // a format similar to +40123456789
     static boolean isPhoneNo(String phoneNo) {
-        return false; // TODO
+        phoneNo = phoneNo.replace(" ", "")
+                         .replace("-", "")
+                         .replace(".", "")
+                         .replace("(", "")
+                         .replace(")", "");
+
+        if (phoneNo.length() != 12) return false;
+        if (phoneNo.charAt(0) != '+') return false;
+        for (Character c : phoneNo.substring(1).toCharArray())
+            if (!Character.isDigit(c))
+                return false;
+        return true;
     }
 
-    static boolean isValidPassword(String password) {
-        return false; // TODO
+    //
+    static Pair<Boolean, HashMap<String, Boolean>> isValidPassword(String password) {
+        HashMap<String, Boolean> has = new HashMap<>();
+
+        has.put("hasLength", false);
+        has.put("hasLower", false);
+        has.put("hasUpper", false);
+        has.put("hasDigit", false);
+        has.put("hasSpecial", false);
+
+        if (password.length() >= 8)
+            has.put("hasLength", true);
+
+        List<Character> specials = Arrays.asList('~', '`', '!', '@', '#', '$', '%', '^', '&', '*', '(', ')', '-', '_', '+', '=',
+                                                '{', '}', '[', ']', '|', '\\', '/', ':', ';', '\'', '\'', '<', '>', ',', '.', '?');
+
+        for (Character c : password.substring(1).toCharArray()) {
+            if (Character.isDigit(c)) {
+                has.replace("hasDigit", true);
+                continue;
+            }
+            if (specials.contains(c)) {
+                has.replace("hasSpecial", true);
+                continue;
+            }
+            if (Character.isUpperCase(c)) {
+                has.replace("hasUpper", true);
+                continue;
+            }
+            if (Character.isLowerCase(c)) {
+                has.replace("hasLower", true);
+            }
+        }
+
+        return new Pair<>(!has.values().remove(false), has);
     }
 
     public static void main(String[] args) {
@@ -36,8 +87,15 @@ public class Utils {
 //        System.out.println(Utils.isEmail("sfasffa.caf"));
 //        System.out.println(Utils.isEmail("asaga@caf"));
 //        System.out.println(Utils.isEmail("asaga@fa.com"));
+
         // password
-        
+//        System.out.println(Utils.isValidPassword("whyarewestillhere"));
+//        System.out.println(Utils.isValidPassword("whyAreWeStillHere"));
+//        System.out.println(Utils.isValidPassword("whyAreWeStillHere?"));
+//        System.out.println(Utils.isValidPassword("why4reWeStillHere?"));
+//        System.out.println(Utils.isValidPassword("why4reWeStillHere?"));
+
         // phone_no
+        System.out.println(Utils.isPhoneNo("+40 123 456 789"));
     }
 }

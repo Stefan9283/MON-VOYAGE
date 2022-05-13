@@ -61,9 +61,9 @@ public class UsersController {
         } catch (Exception e) {
             status = HttpStatus.BAD_REQUEST;
             e.printStackTrace();
-            return new ResponseEntity<String>(e.getMessage(), status);
+            return new ResponseEntity<>(e.getMessage(), status);
         }
-        return new ResponseEntity<String>(HttpStatus.OK);
+        return new ResponseEntity<>(HttpStatus.OK);
     }
 
     @DeleteMapping("/removeUser/{id}")
@@ -71,9 +71,9 @@ public class UsersController {
         try {
             usersRepository.deleteById(userId);
         } catch (Exception e) {
-            return new ResponseEntity<String>(e.getMessage(), HttpStatus.NOT_FOUND);
+            return new ResponseEntity<>(e.getMessage(), HttpStatus.NOT_FOUND);
         }
-        return new ResponseEntity<String>(HttpStatus.OK);
+        return new ResponseEntity<>(HttpStatus.OK);
     }
 
     @PutMapping("/modify/{id}/{field}")
@@ -97,8 +97,8 @@ public class UsersController {
         return "User updated!";
     }
 
-    // this method recives the start and the  end date
-    // TODO this shoul be accesed only by the receptionist, theapp user and the manager
+    // this method receives the start and the  end date
+    // TODO this should be accessed only by the receptionist, the app user and the manager
     @PostMapping("/userMakesBooking/{mail}/{hotelId}")
     public String makeBooking(@RequestBody List<String> dateString, @PathVariable("mail") String mail,
                               @PathVariable("hotelId") int hotelId) throws ParseException {
@@ -138,15 +138,15 @@ public class UsersController {
     // TODO only the user should add reviews
     @PostMapping("/addReview")
     public ResponseEntity<String> addReviews(@RequestBody Review review) {
-        HttpStatus status = HttpStatus.OK;
+        HttpStatus status;
         try {
             reviewsRepository.save(review);
         } catch (Exception e) {
             status = HttpStatus.BAD_REQUEST;
             e.printStackTrace();
-            return new ResponseEntity<String>(e.getMessage(), status);
+            return new ResponseEntity<>(e.getMessage(), status);
         }
-        return new ResponseEntity<String>(HttpStatus.OK);
+        return new ResponseEntity<>(HttpStatus.OK);
     }
 }
 // TODO
