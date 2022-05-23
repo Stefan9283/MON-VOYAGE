@@ -87,7 +87,7 @@ public class UsersController {
         else if (field.equals("email"))
             user.setEmail(modifyWith);
         else if (field.equals("type"))
-            user.setType(modifyWith);
+            user.setRole(modifyWith);
         else
             return "Wrong field!";
 

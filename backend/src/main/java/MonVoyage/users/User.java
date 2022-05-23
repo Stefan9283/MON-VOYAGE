@@ -25,8 +25,11 @@ public class User {
     private String username;
     private String email;
     private String passhash;
-
-    private String type;
+    private String phone;
+    private String hotelId;
+    private String salary;
+    private String workingHours;
+    private String role;
 
     public User() {}
 

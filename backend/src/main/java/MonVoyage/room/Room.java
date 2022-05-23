@@ -12,6 +12,7 @@ public class Room {
     @Id
     private int id;
     private int number;
+    private String type;
     private int hotelId;
     boolean state;
     boolean airCondtioning;

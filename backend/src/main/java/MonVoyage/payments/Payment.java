@@ -1,4 +1,4 @@
-package MonVoyage.reviews;
+package MonVoyage.payments;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Getter;
@@ -9,19 +9,15 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import java.util.Date;
 
+@Entity
 @Getter
 @Setter
-@Entity
-public class Review {
-    @Id
+public class Payment {
     @GeneratedValue
+    @Id
     private int id;
-    private int clientId;
-    private String mail;
-    private int hotelId;
-    private String reviewNamel;
+    private String paymentName;
+    private String status;
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MM-yyyy")
-    private Date date;
-    private String review;
+    private Date dueDate;
 }
-

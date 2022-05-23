@@ -16,6 +16,9 @@ public class Hotel {
     private String name;
     private String address;
     private String city;
+    private int nrOfMatrimonialRooms;
+    private int nrOfTwinRooms;
+    private int nrOfTripleRooms;
     private String country;
     @Column(name = "manager_id")
     private int managerId;

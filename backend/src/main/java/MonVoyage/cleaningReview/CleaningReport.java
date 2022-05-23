@@ -17,6 +17,6 @@ public class CleaningReport {
     private int cleaningManId;
     private int hotelId;
     private int roomId;
-    private int roomState;
+    private int absentObjects;
     private String damagesReport;
 }
