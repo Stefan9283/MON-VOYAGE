@@ -1,9 +1,8 @@
-package MonVoyage.utils.checkInputs;
+package MonVoyage.utils;
 
-
-import javafx.util.Pair;
-
-import java.util.*;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.List;
 
 public class Utils {
     // TODO 
