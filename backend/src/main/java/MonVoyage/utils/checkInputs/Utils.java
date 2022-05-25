@@ -1,7 +1,6 @@
 package MonVoyage.utils.checkInputs;
 
 
-//import com.sun.tools.javac.util.Pair;
 import javafx.util.Pair;
 
 import java.util.*;

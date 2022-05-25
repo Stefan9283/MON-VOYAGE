@@ -47,14 +47,6 @@ public class UsersController {
                     throw new Exception("User with the same email already exists");
                 }
             }
-            {
-                // TODO instead of this auto-increment the id of the user
-                //  (the same thing for every other class)
-                if (usersRepository.findById(user.getId()) != null) {
-                    status = HttpStatus.BAD_REQUEST;
-                    throw new Exception("User with the same id already exists");
-                }
-            }
 
             usersRepository.save(user);
         } catch (Exception e) {
@@ -87,7 +79,7 @@ public class UsersController {
         else if (field.equals("email"))
             user.setEmail(modifyWith);
         else if (field.equals("type"))
-            user.setRole(modifyWith);
+            user.setType(modifyWith);
         else
             return "Wrong field!";
 

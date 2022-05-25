@@ -4,23 +4,19 @@ import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import java.util.Arrays;
+import java.util.List;
 
 
-enum UserType {
-    OMDESERVICIU,
-    RECEPTIONER,
-    GESTIONAR,
-    CONTABIL,
-    MANAGER,
-    USER;
-}
 
 @Getter
 @Setter
 @Entity
 public class User {
     @Id
+    @GeneratedValue
     private int id;
     private String username;
     private String email;
@@ -29,20 +25,7 @@ public class User {
     private String hotelId;
     private String salary;
     private String workingHours;
-    private String role;
+    private String type;
 
     public User() {}
-
-    // TODO check the value of "modifyWith"
-    public void setUsername(String modifyWith) {
-        username = modifyWith;
-    }
-    public void setPasshash(String modifyWith) {
-        passhash = modifyWith;
-    }
-    public void setEmail(String modifyWith) {
-
-        email = modifyWith;
-    }
-
 }
