@@ -17,6 +17,7 @@ public class Review {
     @GeneratedValue
     private int id;
     private int clientId;
+    private int nrOfStars;
     private String mail;
     private int hotelId;
     private String reviewNamel;

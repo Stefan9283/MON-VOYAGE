@@ -1,4 +1,4 @@
-package MonVoyage.buylist;
+package MonVoyage.acquisitions;
 
 import MonVoyage.utils.exceptions.BuyListNotFound;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,15 +8,15 @@ import org.springframework.web.bind.annotation.*;
 
 // TODO this should only be accessed by the storekeeper
 @RestController
-@RequestMapping("/buyList")
-public class BuyListController {
+@RequestMapping("/acquisitions")
+public class AcquisitionsController {
     @Autowired
-    BuyListRepository buyListRepository;
+    AcquisitionsRepository acquisitionsRepository;
 
     @PostMapping
-    public ResponseEntity<HttpStatus> addBuyList(@RequestBody BuyList buyList) {
+    public ResponseEntity<HttpStatus> addBuyList(@RequestBody Acquisitions acquisitions) {
         try {
-            buyListRepository.save(buyList);
+            acquisitionsRepository.save(acquisitions);
         } catch (Exception e) {
             e.printStackTrace();
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
@@ -25,22 +25,22 @@ public class BuyListController {
     }
 
     @GetMapping("/{roomId}/{hotelId}")
-    public BuyList getBuyListForRoom(@PathVariable("roomId") int roomId,
-                                                   @PathVariable("hotelId") int hotelId)
+    public Acquisitions getBuyListForRoom(@PathVariable("roomId") int roomId,
+                                          @PathVariable("hotelId") int hotelId)
             throws BuyListNotFound {
-        BuyList buyList = buyListRepository
+        Acquisitions acquisitions = acquisitionsRepository
                 .findBuyListByRoomNumberAndHotelId(roomId, hotelId);
-        if (buyList == null)
+        if (acquisitions == null)
             throw new BuyListNotFound("BuyLists fot this room does not exist.");
         else
-            return buyList;
+            return acquisitions;
     }
 
     @DeleteMapping("/{roomId}/{hotelId}")
     public ResponseEntity<HttpStatus> deleteBuyList(@PathVariable("roomId") int roomId,
                                                @PathVariable("hotelId") int hotelId) {
         try {
-            buyListRepository.deleteBuyListByRoomNumberAndHotelId(roomId, hotelId);
+            acquisitionsRepository.deleteBuyListByRoomNumberAndHotelId(roomId, hotelId);
         } catch (Exception e) {
             e.printStackTrace();
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
