@@ -83,7 +83,6 @@ public class UsersController {
         else
             return "Wrong field!";
 
-        usersRepository.deleteById(id);
         usersRepository.save(user);
         return "User updated!";
     }
@@ -115,8 +114,8 @@ public class UsersController {
             Booking booking = new Booking();
             booking.setEndDate(dates.parse(dateString.get(1)));
             booking.setStartDate(dates.parse(dateString.get(0)));
-            booking.setClientId(user.getId());
-            booking.setHotelId(hotelId);
+            booking.setClient(user);
+            booking.setHotel(hotel);
 
             bookingsRepository.save(booking);
         } else {

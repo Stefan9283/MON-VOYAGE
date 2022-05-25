@@ -6,6 +6,7 @@ import lombok.Setter;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import java.util.Date;
 
@@ -13,7 +14,7 @@ import java.util.Date;
 @Getter
 @Setter
 public class Payment {
-    @GeneratedValue
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
     @Id
     private int id;
     private String paymentName;

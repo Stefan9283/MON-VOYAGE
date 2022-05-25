@@ -34,7 +34,6 @@ public class PaymentController {
         else
             return "Wrong field!";
 
-        paymentRepository.deleteById(id);
         paymentRepository.save(payment);
         return "User updated!";
     }

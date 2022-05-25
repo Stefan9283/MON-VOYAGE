@@ -1,26 +1,26 @@
 package MonVoyage.reviews;
 
+import MonVoyage.users.User;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Getter;
 import lombok.Setter;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.util.Date;
 
 @Getter
 @Setter
 @Entity
 public class Review {
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
     @Id
-    @GeneratedValue
     private int id;
-    private int clientId;
+    @ManyToOne(fetch = FetchType.EAGER)
+    private User client;
     private int nrOfStars;
     private String mail;
     private int hotelId;
-    private String reviewNamel;
+    private String reviewName;
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MM-yyyy")
     private Date date;
     private String review;

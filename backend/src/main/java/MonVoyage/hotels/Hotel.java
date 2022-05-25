@@ -1,11 +1,10 @@
 package MonVoyage.hotels;
 
+import MonVoyage.users.User;
 import lombok.Getter;
 import lombok.Setter;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Getter
 @Setter
@@ -20,8 +19,8 @@ public class Hotel {
     private int nrOfTwinRooms;
     private int nrOfTripleRooms;
     private String country;
-    @Column(name = "manager_id")
-    private int managerId;
+    @ManyToOne(fetch = FetchType.EAGER)
+    private User manager;
 
     public Hotel() {}
 }

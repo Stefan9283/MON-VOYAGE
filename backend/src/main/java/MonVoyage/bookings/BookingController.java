@@ -23,16 +23,16 @@ public class BookingController {
 
     @PostMapping("/addBooking")
     // checks if there are free rooms first
-    public ResponseEntity addBooking(@RequestBody Booking booking) {
-        if (numberOfFreeRooms(booking.getStartDate(), booking.getEndDate(), booking.getHotelId()) <= 0)
-            return new ResponseEntity(HttpStatus.FORBIDDEN);
+    public ResponseEntity<String> addBooking(@RequestBody Booking booking) {
+        if (numberOfFreeRooms(booking.getStartDate(), booking.getEndDate(), booking.getHotel().getId()) <= 0)
+            return new ResponseEntity<>(HttpStatus.FORBIDDEN);
         try {
             bookingsRepository.save(booking);
         } catch (Exception e) {
             e.printStackTrace();
-            return new ResponseEntity(HttpStatus.NOT_FOUND);
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
-        return new ResponseEntity(HttpStatus.OK);
+        return new ResponseEntity<>(HttpStatus.OK);
     }
 
     @DeleteMapping("/removeBooking/{id}")

@@ -14,8 +14,8 @@ import java.util.Date;
 @Setter
 @Entity
 public class Shift {
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
     @Id
-    @GeneratedValue
     private int id;
     @ManyToOne(fetch = FetchType.EAGER)
     private User user;

@@ -8,7 +8,7 @@ import java.util.List;
 @Repository
 public interface RoomsRepository extends CrudRepository<Room, Integer> {
     void deleteById(int id);
-
+    Room findById(int id);
     List<Room> findRoomsByHotelId(int id);
 }
 // TODO

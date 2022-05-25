@@ -1,5 +1,7 @@
 package MonVoyage.bookings;
 
+import MonVoyage.hotels.Hotel;
+import MonVoyage.users.User;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Getter;
 import lombok.Setter;
@@ -11,11 +13,13 @@ import java.util.Date;
 @Setter
 @Entity
 public class Booking {
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
     @Id
-    @GeneratedValue
     private int id;
-    private int clientId;
-    private int hotelId;
+    @ManyToOne(fetch = FetchType.EAGER)
+    private User client;
+    @ManyToOne(fetch = FetchType.EAGER)
+    private Hotel hotel;
     @JsonFormat(shape= JsonFormat.Shape.STRING, pattern="dd-MM-yyyy")
     private Date startDate;
     @JsonFormat(shape=JsonFormat.Shape.STRING, pattern="dd-MM-yyyy")
@@ -27,8 +31,8 @@ public class Booking {
     public String toString() {
         return "Booking{" +
                 "id=" + id +
-                ", clientId=" + clientId +
-                ", hotelId=" + hotelId +
+                ", client=" + client +
+                ", hotel=" + hotel +
                 ", startDate=" + startDate +
                 ", endDate=" + endDate +
                 '}';

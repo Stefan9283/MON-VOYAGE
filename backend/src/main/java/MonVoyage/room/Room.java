@@ -15,12 +15,12 @@ public class Room {
     private String type;
     private int hotelId;
     boolean state;
-    boolean airCondtioning;
+    boolean ac;
     boolean tv;
-    boolean attractionView;
+    boolean niceView;
     boolean matrimonial;
     boolean smokerRoom;
-    boolean hairDresser;
+    boolean blowDryer;
 
     public Room() {}
 }
