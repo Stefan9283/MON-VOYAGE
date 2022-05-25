@@ -1,0 +1,55 @@
+@import "bootstrap";
+
+
+$mynewcolor:#2b4e57;
+
+.btn-default {
+    @include button-variant($mynewcolor, darken($mynewcolor, 7.5%), darken($mynewcolor, 10%), lighten($mynewcolor,5%), lighten($mynewcolor, 10%), darken($mynewcolor,30%));
+}
+
+.btn-outline-default {
+    @include button-outline-variant($mynewcolor, #222222, lighten($mynewcolor,5%), $mynewcolor);
+}
+
+
+
+
+$mynewcolor2:#7D1538;
+
+.btn-form {
+    @include button-variant($mynewcolor2, darken($mynewcolor2, 7.5%), darken($mynewcolor2, 10%), lighten($mynewcolor2,5%), lighten($mynewcolor2, 10%), darken($mynewcolor2,30%));
+}
+
+.btn-outline-form {
+    @include button-outline-variant($mynewcolor2, #222222, lighten($mynewcolor2,5%), $mynewcolor2);
+}
+
+
+.textMare { 
+    font-size: 23px;
+} 
+// .text-end {
+//     text-align: right !important;
+//   }
+
+
+.navbar-collapse {
+    
+    .collapse{
+
+        .show{
+            background-color: #212529;
+        }
+    } 
+}
+
+  .rightAlign{
+      align-items: flex-end;
+  }
+  html{
+    scroll-behavior: smooth;
+  }
+
+  .bacgroundNegry{
+      background: #222222;
+  }

@@ -1,0 +1,292 @@
+.btn-default {
+    background-color: #0E1629 !important;
+    color: white !important;
+}
+
+.btn-outline-default {
+    border-color: #0E1629 !important;
+    color: white !important;
+}
+
+body {
+
+    background-image: url('../img/blur.svg');
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+body {
+    background-color: #294E55 !important;
+}
+
+.verde {
+
+    display: flex;
+
+    align-items: center;
+}
+
+
+.btn-outline-default {
+    color: white !important;
+}
+
+
+.btn-logged {
+    background-color: #0E1629 !important;
+    border-color: #0E1629 !important;
+    
+    border-radius: 30px!important;
+    color: white !important;
+}
+.btn-logged2 {
+    background-color: #173042 !important;
+    border-color: #173042 !important;
+    
+    border-radius: 10px!important;
+    color: white !important;
+}
+.tableHeader{
+    padding-top: 35px;
+    padding-left: 35px;
+}
+
+.containerLogged{
+    height: 500px;
+    padding-top: 35px;
+    padding-left: 35px;
+ 
+}
+
+.scrollable{
+    overflow-y: scroll;
+    overflow-x:hidden;   
+    margin-left: 22px; 
+    margin-right: 22px; 
+}
+.scrollable2{
+    overflow-y: scroll;
+    overflow-x:hidden;   
+    margin-left: 15px; 
+    margin-right: 15px; 
+}
+.checkinText{
+    color: white;
+    font-family: 'Mulish';
+    font-size: 30px;
+    text-align: center;
+}
+.containerCheckIn{
+    border-radius: 30px;
+    display: flex;
+    // width: auto;
+    width: 1211px;
+    height: 768px;
+    background-color: white;
+}
+.containerCheckOut{
+    border-radius: 30px;
+    
+    background-color: #294E55;
+    height: 666px;
+}
+.titleCheckOut{
+    padding-bottom: 50px;
+}
+.formCheckout{
+    padding-top: 10px;
+}
+.btnCheckout{
+    justify-content: center;
+}
+.stangaCheck
+{
+    border-top-left-radius:28px;
+    border-bottom-left-radius:28px;
+    padding-top: 70px;
+    height: 768px;
+    width: 524px!important;
+    background: #294E55!important;
+}
+.borderedRow{
+    border: #000000;
+    border-style: solid;
+    margin-right: 10px!important;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin-top: 10px!important;
+}
+.displayGrid
+{
+    display: grid;
+}
+.checkinButtons{
+    justify-content: center;
+}
+.dreaptaCheck{
+    padding-top: 50px;
+    border-top-right-radius:28px;
+    border-bottom-right-radius:28px;
+    width: 687px;
+    background-color: white;
+}
+
+.btn-dropdown{
+    width: 712px;
+    font-family: 'Mulish' !important;
+    border-radius: 5px!important;
+    font-size: 25px!important;
+}
+
+.dropdownPadding{
+    padding-top: 10px;
+}
+
+.minH{
+    min-height: 900px;
+}
+.scrollBarLogged::-webkit-scrollbar-track
+{
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+	background-color: #F5F5F5;
+}
+
+.scrollBarLogged::-webkit-scrollbar
+{
+    
+	width: 10px;
+	background-color: #F5F5F5;
+}
+
+.scrollBarLogged::-webkit-scrollbar-thumb
+{
+	background-color: #000000;
+	border: 2px solid #555555;
+    
+}
+
+
+.textLabelForm{
+    font-family: 'Mulish'!important;
+    font-size: 20px!important;
+}
+
+.loggedPage {
+    justify-content: center;
+    
+    display: grid;
+}
+.widthlogged{
+    width: 600px;
+
+}
+.widthformlogged{
+    width: 912px;
+    height: 102px;
+}
+.rowButton{
+    padding-top: 10px;
+}
+
+.loggedText{
+    color: white;
+    font-family: 'Mulish';
+    font-size: 60px;
+    text-align: center;
+}
+.loggedText4{
+    color: #0E1629;
+    font-family: 'Mulish';
+    font-size: 30px;
+    text-align: center;
+}
+.loggedText3{
+    color: white;
+    font-family: 'Mulish';
+    font-size: 15px;
+    text-align: center;
+}
+.loggedText5{
+    color: #0E1629;
+    font-family: 'Mulish';
+    font-size: 64px;
+    text-align: center;
+}
+.loggedText6{
+    color: #0E1629;
+    font-family: 'Mulish';
+    font-size: 32px;
+    text-align: center;
+}
+.loggedText7{
+    color: white;
+    font-family: 'Mulish';
+    font-size: 30px;
+    text-align: center;
+}
+.CheckOutText{
+    color: white;
+    font-family: 'Mulish';
+    font-size: 80px;
+    text-align: center;
+}
+.inputCheckOut{
+    width: 303px!important;
+    border-radius: 30px;
+}
+
+// .loggedText2{
+//     color: white;
+//     font-family: 'Mulish';
+//     font-size: 25px;
+//     text-align: center;
+// }
+.backbtnText{
+    color: white;
+    font-family: 'Mulish';
+    font-size: 20px;
+    text-align: center;
+}
+.submitBtnTextCheck{
+    color: white;
+    font-family: 'Mulish';
+    font-size: 15px;
+    text-align: center;
+}
+.backbtn{
+    width: 200px!important;
+    height: 45px!important;
+}
+.submitbtn{
+    height: 38px!important;
+}
+.buttons{
+    position: fixed;
+}
+.BackButton{
+    position: fixed;
+    bottom: 44px;
+    left: 44px;
+    padding: 20px;
+}
+
+.formLogged
+{
+    background-color:white;
+    border-radius: 30px;
+    width: 912px!important;
+}
+.OkButton{
+    position: fixed;
+    bottom: 44px;
+    right: 44px;
+    padding: 20px;
+}
+
+.imgCheck{
+    width: 260px;
+    height: 209px;
+    padding-right: 10px;
+}

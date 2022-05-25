@@ -1,0 +1,101 @@
+// @import "bootstrap";
+
+// $mynewcolor:#7D1538;
+
+// .btn-form {
+//     @include button-variant($mynewcolor, darken($mynewcolor, 7.5%), darken($mynewcolor, 10%), lighten($mynewcolor,5%), lighten($mynewcolor, 10%), darken($mynewcolor,30%));
+// }
+
+// .btn-outline-form {
+//     @include button-outline-variant($mynewcolor, #222222, lighten($mynewcolor,5%), $mynewcolor);
+// }
+
+.btn-form {
+    background-color: #7D1538!important;
+    color: white!important;
+}
+
+.forgotPass{
+    font-style: italic;
+
+    float: inline-end; 
+    float: right;
+}
+
+.form-stuffs {
+    text-align: center!important;
+    align-items: center!important;
+    
+}
+
+.form-label{
+    color: #3F1630!important;
+    font-family: 'Mulish'!important;
+    font-weight: 600!important;
+    font-size: 24px!important;
+}
+
+.title {
+    color: #3F1630;
+    font-family: 'Mulish';
+    font-weight: bolder;
+    font-size: 64px;
+}
+
+.container-signUp {
+    margin-top: -100px!important;
+}
+
+.content {
+    position: relative!important;
+    padding-top: 40px!important;
+    margin-bottom: 40px!important;
+
+    border-bottom: 5px solid #3F1630!important;
+    
+}
+
+.content::after{
+    content: " "!important;
+    position: absolute!important;
+    border-top: 5px #3F1630 solid!important;
+    z-index: -1!important;
+    top: 30%!important;
+    right: 0!important;
+    height: 30%!important;
+    width: 100%!important;
+    margin-top: auto!important;
+    margin-bottom: auto!important;
+
+
+}
+
+.content::after
+{
+    content: " "!important;
+    position: absolute!important;
+    top: 30%!important;
+    right: 0!important;
+    height: 30%!important;
+    width: 100%!important;
+    margin-top: auto!important;
+    margin-bottom: auto!important;
+
+    border-left: 5px solid #3F1630!important;
+
+    border-right: 5px solid #3F1630!important;
+    bottom:0!important;
+    height: 70%!important;
+}
+
+.svgLogo {
+    margin-top: 100px;
+
+}
+
+.textForm {
+    color: #7D1538;
+    font-family: 'Mulish';
+    text-decoration: none;
+    
+}
