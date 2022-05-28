@@ -90,8 +90,10 @@ public class UsersController {
     // this method receives the start and the  end date
     // TODO this should be accessed only by the receptionist, the app user and the manager
     @PostMapping("/userMakesBooking/{mail}/{hotelId}")
-    public String makeBooking(@RequestBody List<String> dateString, @PathVariable("mail") String mail,
-                              @PathVariable("hotelId") int hotelId) throws ParseException {
+    public String makeBooking(
+                @RequestBody List<String> dateString, 
+                @PathVariable("mail") String mail,
+                @PathVariable("hotelId") int hotelId) throws ParseException {
         // user should add only the dates and the mail
         User user = usersRepository.findByEmail(mail);
         if (user == null)

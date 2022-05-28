@@ -28,9 +28,9 @@ public class RoomController {
 
     @PostMapping("changeFeatures/{room_id}/{feature}/{state}")
     public ResponseEntity<String> changeFeature(
-            @PathVariable("room_id") int roomId,
-            @PathVariable("feature") String feature,
-            @PathVariable("state") boolean state
+            @PathVariable("room_id")    int     roomId,
+            @PathVariable("feature")    String  feature,
+            @PathVariable("state")      boolean state
     ) {
         Room room = roomsRepository.findById(roomId);
 

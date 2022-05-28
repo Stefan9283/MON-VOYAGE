@@ -22,7 +22,6 @@ public interface ShiftsRepository  extends CrudRepository<Shift, Integer> {
             @Param("endDate")   Date endDate
     );
 
-        // TODO
     @Query("from Shift where " +
             "hotel.id=:hotelId and user.type=:userType " +
             "and (" +

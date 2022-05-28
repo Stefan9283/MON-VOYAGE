@@ -41,6 +41,11 @@ public class ShiftController {
             User user = usersRepository.findById(userId);
             Hotel hotel = hotelsRepository.findHotelById(hotelId);
 
+            if (user == null)
+                return new ResponseEntity<>("User not found", HttpStatus.NOT_FOUND);
+            if (hotel == null)
+                return new ResponseEntity<>("Hotel not found", HttpStatus.NOT_FOUND);
+
             Shift s = new Shift(start_date, end_date, user, hotel);
             shiftsRepository.save(s);
 
@@ -74,3 +79,4 @@ public class ShiftController {
         }
     }
 }
+

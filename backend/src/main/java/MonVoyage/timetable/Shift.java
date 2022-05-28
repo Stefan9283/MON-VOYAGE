@@ -22,9 +22,6 @@ public class Shift {
     @ManyToOne(fetch = FetchType.EAGER)
     private Hotel hotel;
 
-//    https://help.gooddata.com/cloudconnect/manual/date-and-time-format.html
-//    "EEE, MMM d, "yy"	Wed, Jul 4, '01
-//    "h:mm a"	            12:08 PM
     @JsonFormat(shape= JsonFormat.Shape.STRING, pattern="dd-MM-yyyy h:mm a")
     private Date startDate;
     @JsonFormat(shape=JsonFormat.Shape.STRING, pattern="dd-MM-yyyy h:mm a")
