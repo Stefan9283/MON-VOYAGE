@@ -4,6 +4,7 @@ import MonVoyage.utils.exceptions.BuyListNotFound;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 // TODO this should only be accessed by the storekeeper
@@ -13,6 +14,7 @@ public class AcquisitionsController {
     @Autowired
     AcquisitionsRepository acquisitionsRepository;
 
+    @PreAuthorize("hasRole('ADMIN') or hasRole('MANAGER') or hasRole('RECEPTIONIST') or hasRole('ACCOUNTANT')")
     @PostMapping
     public ResponseEntity<HttpStatus> addBuyList(@RequestBody Acquisitions acquisitions) {
         try {
@@ -24,6 +26,7 @@ public class AcquisitionsController {
         return new ResponseEntity<>(HttpStatus.OK);
     }
 
+    @PreAuthorize("hasRole('ADMIN') or hasRole('MANAGER') or hasRole('RECEPTIONIST') or hasRole('ACCOUNTANT')")
     @GetMapping("/{roomId}/{hotelId}")
     public Acquisitions getBuyListForRoom(@PathVariable("roomId") int roomId,
                                           @PathVariable("hotelId") int hotelId)
@@ -36,6 +39,7 @@ public class AcquisitionsController {
             return acquisitions;
     }
 
+    @PreAuthorize("hasRole('ADMIN') or hasRole('MANAGER') or hasRole('RECEPTIONIST') or hasRole('ACCOUNTANT')")
     @DeleteMapping("/{roomId}/{hotelId}")
     public ResponseEntity<HttpStatus> deleteBuyList(@PathVariable("roomId") int roomId,
                                                @PathVariable("hotelId") int hotelId) {

@@ -4,6 +4,7 @@ import MonVoyage.utils.exceptions.CleaningReportNotFound;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 // TODO work more !
@@ -14,6 +15,7 @@ public class CleaningReportController {
     @Autowired
     CleaningReportRepository cleaningReportRepository;
 
+    @PreAuthorize("hasRole('ADMIN') or hasRole('MANAGER') or hasRole('JANITOR')")
     @PostMapping
     public ResponseEntity<HttpStatus> addCleaningReport(@RequestBody CleaningReport cleaningReport) {
         try {
@@ -25,6 +27,7 @@ public class CleaningReportController {
         return new ResponseEntity<>(HttpStatus.OK);
     }
 
+    @PreAuthorize("hasRole('ADMIN') or hasRole('MANAGER')")
     @GetMapping("/{roomId}/{hotelId}")
     public CleaningReport getCleaningReportForRoom(@PathVariable("roomId") int roomId,
                                                    @PathVariable("hotelId") int hotelId)
@@ -37,6 +40,7 @@ public class CleaningReportController {
             return cleaningReport;
     }
 
+    @PreAuthorize("hasRole('ADMIN') or hasRole('MANAGER')")
     @DeleteMapping("/{roomId}/{hotelId}")
     public ResponseEntity<HttpStatus> deleteCleaningReport(@PathVariable("roomId") int roomId,
                                                @PathVariable("hotelId") int hotelId) {

@@ -31,6 +31,7 @@ public class ShiftController {
     HotelsRepository hotelsRepository;
 
     @PostMapping("/addShift/{hotelId}/{userId}")
+    @PreAuthorize("hasRole('ADMIN') or hasRole('MANAGER')")
     public ResponseEntity<String> addShift(@PathVariable("hotelId") int hotelId, @PathVariable("userId") int userId, @RequestBody List<String> dateString) {
         if(dateString.size() != 2)
             return new ResponseEntity<>("Please put 2 dates in the list", HttpStatus.BAD_REQUEST);

@@ -4,6 +4,7 @@ import MonVoyage.hotels.HotelsRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -15,6 +16,7 @@ public class RoomController {
     @Autowired
     HotelsRepository hotelsRepository;
 
+    @PreAuthorize("hasRole('ADMIN') or hasRole('RECEPTIONIST') or hasRole('MANAGER')")
     @PostMapping("/addRoom")
     public ResponseEntity<String> addRoom(@RequestBody Room room) {
         try {
@@ -26,6 +28,7 @@ public class RoomController {
         return new ResponseEntity<>(HttpStatus.OK);
     }
 
+    @PreAuthorize("hasRole('ADMIN') or hasRole('RECEPTIONIST') or hasRole('MANAGER')")
     @PostMapping("changeFeatures/{room_id}/{feature}/{state}")
     public ResponseEntity<String> changeFeature(
             @PathVariable("room_id")    int     roomId,
@@ -63,6 +66,7 @@ public class RoomController {
         return new ResponseEntity<>("Changed! :)", HttpStatus.OK);
     }
 
+    @PreAuthorize("hasRole('ADMIN') or hasRole('RECEPTIONIST') or hasRole('MANAGER')")
     @DeleteMapping("/removeRoom/{id}")
     public void removeRoom(@PathVariable("id") int id) {
         roomsRepository.deleteById(id);

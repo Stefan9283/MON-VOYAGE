@@ -5,6 +5,7 @@ import MonVoyage.room.RoomsRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.text.ParseException;
@@ -21,6 +22,7 @@ public class BookingController {
     @Autowired
     RoomsRepository roomsRepository;
 
+    @PreAuthorize("hasRole('ADMIN') or hasRole('MANAGER') or hasRole('RECEPTIONIST') or hasRole('USER')")
     @PostMapping("/addBooking")
     // checks if there are free rooms first
     public ResponseEntity<String> addBooking(@RequestBody Booking booking) {
@@ -35,6 +37,7 @@ public class BookingController {
         return new ResponseEntity<>(HttpStatus.OK);
     }
 
+    @PreAuthorize("hasRole('ADMIN') or hasRole('MANAGER') or hasRole('RECEPTIONIST')")
     @DeleteMapping("/removeBooking/{id}")
     public void removeBooking(@PathVariable("id") int id) {
         bookingsRepository.deleteById(id);
@@ -71,6 +74,7 @@ public class BookingController {
         return roomsAtHotel.size() - bookings.size();
     }
 
+    @PreAuthorize("hasRole('ADMIN') or hasRole('MANAGER') or hasRole('RECEPTIONIST')")
     @GetMapping("getBookings/{clientId}")
     public List<Booking> getBookingsOfClient(@PathVariable("clientId") int clientId) {
         List<Booking> bookings =  bookingsRepository.findBookingsByClientId(clientId);

@@ -13,6 +13,7 @@ import MonVoyage.security.Role;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.text.ParseException;
@@ -36,8 +37,8 @@ public class UsersController {
 
     @Autowired
     ReviewsRepository reviewsRepository;
-    // TODO make bookings from user
 
+    @PreAuthorize("hasRole('ADMIN')")
     @PostMapping("/addUser")
     public ResponseEntity<String> addUser(@RequestBody User user) {
         HttpStatus status = HttpStatus.OK;
@@ -58,6 +59,7 @@ public class UsersController {
         return new ResponseEntity<>(HttpStatus.OK);
     }
 
+    @PreAuthorize("hasRole('ADMIN') or hasRole('RECEPTIONIST')")
     @DeleteMapping("/removeUser/{id}")
     public ResponseEntity<String> removeUser(@PathVariable("id") int userId) {
         try {
@@ -68,6 +70,7 @@ public class UsersController {
         return new ResponseEntity<>(HttpStatus.OK);
     }
 
+    @PreAuthorize("hasRole('ADMIN')")
     @PutMapping("/modify/{id}/{field}")
     public String modifyFieldInUser(@PathVariable("field") String field,
                                     @PathVariable("id") int id, @RequestBody String modifyWith) {
@@ -93,7 +96,7 @@ public class UsersController {
     }
 
     // this method receives the start and the  end date
-    // TODO this should be accessed only by the receptionist, the app user and the manager
+    @PreAuthorize("hasRole('ADMIN') or hasRole('MANAGER') or hasRole('USER') or hasRole('RECEPTIONIST')")
     @PostMapping("/userMakesBooking/{mail}/{hotelId}")
     public String makeBooking(
                 @RequestBody List<String> dateString, 
@@ -132,7 +135,7 @@ public class UsersController {
         return "Booking has been registered!";
     }
 
-    // TODO only the user should add reviews
+    @PreAuthorize("hasRole('USER')")
     @PostMapping("/addReview")
     public ResponseEntity<String> addReviews(@RequestBody Review review) {
         HttpStatus status;
@@ -146,4 +149,3 @@ public class UsersController {
         return new ResponseEntity<>(HttpStatus.OK);
     }
 }
-// TODO
