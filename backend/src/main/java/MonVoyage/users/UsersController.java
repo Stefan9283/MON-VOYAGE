@@ -8,6 +8,8 @@ import MonVoyage.reviews.Review;
 import MonVoyage.reviews.ReviewsRepository;
 import MonVoyage.room.Room;
 import MonVoyage.room.RoomsRepository;
+import MonVoyage.security.ERole;
+import MonVoyage.security.Role;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -16,7 +18,6 @@ import org.springframework.web.bind.annotation.*;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.List;
-
 
 @RestController
 @RequestMapping("/users")
@@ -74,13 +75,17 @@ public class UsersController {
         User user = usersRepository.findById(id);
         if (field.equals("username"))
             user.setUsername(modifyWith);
-        else if (field.equals("passhash"))
-            user.setPasshash(modifyWith);
+        else if (field.equals("password"))
+            user.setPassword(modifyWith);
         else if (field.equals("email"))
             user.setEmail(modifyWith);
-        else if (field.equals("type"))
-            user.setType(modifyWith);
-        else
+        else if (field.equals("addRole")) {
+            Role role = new Role(ERole.valueOf(modifyWith.toUpperCase()));
+            user.addRole(role);
+        } else if (field.equals("removeRole")) {
+            Role role = new Role(ERole.valueOf(modifyWith.toUpperCase()));
+            user.removeRole(role);
+        } else
             return "Wrong field!";
 
         usersRepository.save(user);

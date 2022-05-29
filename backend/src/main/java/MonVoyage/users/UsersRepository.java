@@ -5,8 +5,11 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface UsersRepository extends CrudRepository<User, Integer> {
-    boolean existsByEmailAndPasshash(String email, String password_hash); // TODO use for login
-    User findByEmail(String email);
-    void deleteById(int id);
     User findById(int id);
+    void deleteById(int id);
+
+    User findByUsername(String username);
+    User findByEmail(String email);
+    Boolean existsByUsername(String username);
+    Boolean existsByEmail(String email);
 }

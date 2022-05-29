@@ -1,5 +1,6 @@
 package MonVoyage.timetable;
 
+import MonVoyage.security.Role;
 import org.hibernate.usertype.UserType;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
@@ -23,7 +24,7 @@ public interface ShiftsRepository  extends CrudRepository<Shift, Integer> {
     );
 
     @Query("from Shift where " +
-            "hotel.id=:hotelId and user.type=:userType " +
+            "hotel.id=:hotelId and :userType in user.roles " +
             "and (" +
             "(start_date <= :startDate and :startDate <= end_date) or " +
             "(start_date <= :endDate and :endDate <= end_date) or " +
@@ -34,7 +35,7 @@ public interface ShiftsRepository  extends CrudRepository<Shift, Integer> {
         @Param("hotelId")   int hotelId,
         @Param("startDate") Date startDate,
         @Param("endDate")   Date endDate,
-        @Param("userType") String userType
+        @Param("userType") Role userType
     );
 
 }

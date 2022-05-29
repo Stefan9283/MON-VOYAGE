@@ -2,13 +2,15 @@ package MonVoyage.timetable;
 
 import MonVoyage.hotels.Hotel;
 import MonVoyage.hotels.HotelsRepository;
+import MonVoyage.security.Role;
 import MonVoyage.users.User;
 import MonVoyage.users.UsersRepository;
-import MonVoyage.users.userType;
+import MonVoyage.security.ERole;
 import MonVoyage.utils.exceptions.InvalidUserType;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.text.ParseException;
@@ -56,6 +58,8 @@ public class ShiftController {
     }
 
     @GetMapping("/timetable/{user_type}/{hotelId}")
+    @PreAuthorize("hasRole('ADMIN') or hasRole('JANITOR') or " +
+            "hasRole('RECEPTIONIST') or hasRole('ACCOUNTANT') or hasRole('MANAGER')")
     public Object getTimetableByUserType(@PathVariable("hotelId") int hotelId,
                                @PathVariable("user_type") String usertype,
                                @RequestBody List<String> dateString) {
@@ -69,9 +73,9 @@ public class ShiftController {
             Date end_date = dates.parse(dateString.get(1));
 
             usertype = usertype.toUpperCase();
-            userType ut = userType.getType(usertype);
+            ERole ut = ERole.getType(usertype);
 
-            return shiftsRepository.findShiftBetweenDatesWithSpecificRole(hotelId, start_date, end_date, ut.toString());
+            return shiftsRepository.findShiftBetweenDatesWithSpecificRole(hotelId, start_date, end_date, new Role(ut));
         } catch (ParseException e) {
             return new ResponseEntity<>("Invalid date format", HttpStatus.BAD_REQUEST);
         } catch (InvalidUserType e) {
