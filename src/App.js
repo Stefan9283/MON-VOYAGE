@@ -13,19 +13,18 @@ import Location from "./pages/Location";
 import Review from "./pages/Reviews";
 import LeaveReview from "./pages/LeaveReview";
 
-// import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import React, { Component } from "react";
 
 function App() {
   return (
     <BrowserRouter>
-
       <Routes>
         <Route element={<WithNAV />}>
           <Route path="/" element={<Home />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/location" element={<Location />} />
           <Route path="/reviews" element={<Review />} />
-
         </Route>
         <Route element={<WithNAVLogged />}>
         <Route path="/leavereview" element={<LeaveReview />} />

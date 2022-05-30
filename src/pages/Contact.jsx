@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import "../assets/styles/contact.scss";
 
+import http from "../http-common";
+
 class Contact extends Component {
   render() {
     return (

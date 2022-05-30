@@ -8,9 +8,7 @@ function onClickHandler(ratedVal) //de aici iei nr de stele
 }
 
 class LeaveReview extends Component {
-  
   render() {
-
     return (
       <>
         <div className="verde">
